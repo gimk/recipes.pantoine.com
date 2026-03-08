@@ -21,41 +21,44 @@ const recipes = await getCollection("recipes");
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {
-        recipes.map((recipe) => (
-          <a
-            href={`/recipes/${recipe.id}`}
-            class="surface-card p-6 min-h-32 flex flex-col justify-between hover:border-[var(--color-accent)] transition-colors group cursor-pointer no-underline text-inherit block"
-          >
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="bg-[var(--color-border-grid)] text-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors px-2 py-1 text-xs font-bold font-mono">
-                  {recipe.id.toUpperCase()}
-                </span>
-                <span class="font-mono text-xs opacity-60 flex gap-3">
-                  {recipe.data.kcal && <span>{recipe.data.kcal} KCAL</span>}
-                  <span>{recipe.data.baseServings} PORTIONS</span>
-                </span>
+        recipes.map((recipe) => {
+          const slug = recipe.id.replace(/\.mdx?$/, "");
+          return (
+            <a
+              href={`/recipes/${slug}`}
+              class="surface-card p-6 min-h-32 flex flex-col justify-between hover:border-[var(--color-accent)] transition-colors group cursor-pointer no-underline text-inherit block"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="bg-[var(--color-border-grid)] text-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors px-2 py-1 text-xs font-bold font-mono">
+                    {recipe.data.category.toUpperCase()}
+                  </span>
+                  <span class="font-mono text-xs opacity-60 flex gap-3">
+                    {recipe.data.kcal && <span>{recipe.data.kcal} KCAL</span>}
+                    <span>{recipe.data.baseServings} PORTIONS</span>
+                  </span>
+                </div>
+                <h3 class="text-xl m-0 mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+                  {recipe.data.title}
+                </h3>
+                <p class="font-mono text-sm opacity-70 m-0 line-clamp-2">
+                  {recipe.data.description}
+                </p>
               </div>
-              <h3 class="text-xl m-0 mb-2 group-hover:text-[var(--color-accent)] transition-colors">
-                {recipe.data.title}
-              </h3>
-              <p class="font-mono text-sm opacity-70 m-0 line-clamp-2">
-                {recipe.data.description}
-              </p>
-            </div>
 
-            <div class="mt-6 flex justify-between items-center font-mono text-sm border-t border-[var(--color-border-grid)] pt-3 border-opacity-50">
-              <div class="flex gap-4">
-                <span>P:{recipe.data.difficulty.prep}</span>
-                <span>T:{recipe.data.difficulty.technique}</span>
-                <span>C:{recipe.data.difficulty.cleanup}</span>
+              <div class="mt-6 flex justify-between items-center font-mono text-sm border-t border-[var(--color-border-grid)] pt-3 border-opacity-50">
+                <div class="flex gap-4">
+                  <span>P:{recipe.data.difficulty.prep}</span>
+                  <span>T:{recipe.data.difficulty.technique}</span>
+                  <span>C:{recipe.data.difficulty.cleanup}</span>
+                </div>
+                <span class="text-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity">
+                  EXÉCUTER →
+                </span>
               </div>
-              <span class="text-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity">
-                EXÉCUTER →
-              </span>
-            </div>
-          </a>
-        ))
+            </a>
+          );
+        })
       }
     </div>
   </section>

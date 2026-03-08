@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+const recipes = await getCollection('recipes');
+---
+<html lang="en">
+  <body>
+    <h1>Recipes Count: {recipes.length}</h1>
+    <pre>{JSON.stringify(recipes, null, 2)}</pre>
+  </body>
+</html>

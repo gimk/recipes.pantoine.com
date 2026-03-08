@@ -5,6 +5,7 @@ const recipesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    category: z.string(),
     baseServings: z.number(),
     kcal: z.number().optional(),
     difficulty: z.object({
@@ -15,7 +16,7 @@ const recipesCollection = defineCollection({
     ingredients: z.array(
       z.object({
         name: z.string(),
-        quantity: z.number(),
+        quantity: z.number().optional(),
         unit: z.string(),
         category: z.string().optional(),
       })
