@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-accent: #00D1FF;
+  --color-alert: #FF4B2B;
+  --color-surface: #FFFFFF;
+  --color-border-grid: #E2E8F0;
+  
+  --font-sans: 'Source Code Pro', monospace;
+  --font-mono: 'Source Code Pro', monospace;
+  --font-dot: 'DotGothic16', sans-serif;
+}
+
+body {
+  font-family: 'Source Code Pro', monospace;
+  background-image: 
+    linear-gradient(to right, var(--color-border-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border-grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .font-dot {
+  font-family: 'DotGothic16', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Sharp UI */
+.surface-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-grid);
+  border-radius: 0 !important;
+}
+
+input, button, select, textarea {
+  border-radius: 0 !important;
+}
+
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0.05)
+  );
+  background-size: 100% 4px;
+}

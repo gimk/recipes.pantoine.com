@@ -1,0 +1,60 @@
+---
+const { difficulty } = Astro.props;
+
+// Range 1-10
+const stats = [
+  { label: "PREP", value: difficulty?.prep || 0 },
+  { label: "TECH", value: difficulty?.technique || 0 },
+  { label: "CLEAN", value: difficulty?.cleanup || 0 },
+];
+
+const getColor = (val: number) => {
+  if (val >= 8) return "var(--color-alert)";
+  if (val >= 5) return "var(--color-accent)";
+  return "currentColor"; // Use normal text color if low
+};
+---
+
+<div class="surface-card p-4 my-6 w-full max-w-sm">
+  <div
+    class="font-dot text-sm text-[var(--color-accent)] uppercase tracking-wider mb-4 border-b border-[var(--color-border-grid)] pb-2"
+  >
+    &gt; System Difficulty Analysis
+  </div>
+  <div class="flex flex-col gap-3">
+    {
+      stats.map((stat) => (
+        <div class="flex items-center gap-4">
+          <span class="font-mono text-xs w-10 font-bold">{stat.label}</span>
+          <div class="flex-1 h-3 flex gap-1">
+            {Array.from({ length: 10 }).map((_, i) => {
+              const isActive = i < stat.value;
+              const blockColor = isActive
+                ? getColor(stat.value)
+                : "transparent";
+              const borderColor = isActive
+                ? getColor(stat.value)
+                : "var(--color-border-grid)";
+
+              return (
+                <div
+                  class="flex-1 h-full border opacity-80"
+                  style={{
+                    backgroundColor: blockColor,
+                    borderColor: borderColor,
+                  }}
+                />
+              );
+            })}
+          </div>
+          <span
+            class="font-mono text-xs w-4 text-right font-bold"
+            style={{ color: getColor(stat.value) }}
+          >
+            {stat.value}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</div>
