@@ -1,0 +1,139 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const recipes = await getCollection("recipes");
+  return recipes.map((recipe) => ({
+    params: { id: recipe.id },
+    props: { recipe },
+  }));
+}
+
+const { recipe } = Astro.props;
+const { Content } = await recipe.render();
+
+// Group ingredients by category
+const groupedIngredients = recipe.data.ingredients.reduce(
+  (acc, ingredient) => {
+    const category = ingredient.category || "Principal";
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push(ingredient);
+    return acc;
+  },
+  {} as Record<string, typeof recipe.data.ingredients>,
+);
+---
+
+<BaseLayout title={`Kitchen OS | ${recipe.data.title}`}>
+  <div class="mb-8">
+    <a
+      href="/"
+      class="font-mono text-sm opacity-80 hover:text-[var(--color-accent)] hover:opacity-100 transition-colors"
+    >
+      ← RETOUR À L'ACCUEIL
+    </a>
+  </div>
+
+  <article class="surface-card p-6 md:p-8">
+    <header class="mb-8 border-b border-[var(--color-border-grid)] pb-6">
+      <div class="flex items-center gap-3 mb-4">
+        <span
+          class="bg-[var(--color-accent)] text-white px-2 py-1 text-xs font-bold w-fit"
+        >
+          PROTOCOLE
+        </span>
+        <h1 class="text-3xl m-0">{recipe.data.title}</h1>
+      </div>
+      <p class="font-mono text-sm opacity-80">{recipe.data.description}</p>
+
+      <div class="mt-6 font-mono text-sm flex gap-6">
+        <div
+          class="flex flex-col border border-[var(--color-border-grid)] p-3 items-center min-w-[100px]"
+        >
+          <span
+            class="text-[var(--color-accent)] font-bold mb-1 border-b border-[var(--color-border-grid)] pb-1 w-full text-center"
+          >
+            PORTIONS
+          </span>
+          <span class="text-xl mt-1">{recipe.data.baseServings}</span>
+        </div>
+
+        {
+          recipe.data.kcal && (
+            <div class="flex flex-col border border-[var(--color-border-grid)] p-3 items-center min-w-[100px]">
+              <span class="text-[var(--color-accent)] font-bold mb-1 border-b border-[var(--color-border-grid)] pb-1 w-full text-center">
+                KCAL/PORTION
+              </span>
+              <span class="text-xl mt-1">{recipe.data.kcal}</span>
+            </div>
+          )
+        }
+      </div>
+    </header>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="md:col-span-1">
+        <div class="surface-card px-4 border-0 h-full">
+          <h3
+            class="font-dot text-[var(--color-accent)] border-b border-[var(--color-border-grid)] pb-2 mb-4 mt-0 text-xl tracking-wider"
+          >
+            INGRÉDIENTS
+          </h3>
+          {
+            Object.entries(groupedIngredients).map(([category, items]) => (
+              <div class="mb-6 last:mb-0">
+                {category !== "Principal" && (
+                  <h4 class="font-dot text-sm text-[var(--color-accent)] opacity-80 mb-2 mt-0 tracking-wider">
+                    [{category.toUpperCase()}]
+                  </h4>
+                )}
+                <ul class="font-mono text-sm flex flex-col gap-3 m-0 list-none">
+                  {items.map((ing) => (
+                    <li class="flex justify-between items-center border-b border-[var(--color-border-grid)] border-opacity-50 pb-2">
+                      <span class="pr-2">{ing.name}</span>
+                      <span class="font-bold text-right shrink-0">
+                        {ing.quantity} {ing.unit}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="md:col-span-2 text-[#1A202C]">
+        <h3
+          class="font-dot text-[var(--color-accent)] border-b border-[var(--color-border-grid)] pb-2 mb-4 mt-0 text-xl tracking-wider"
+        >
+          PLAN D'EXÉCUTION
+        </h3>
+        <div class="recipe-content leading-relaxed">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  @reference "../../styles/global.css";
+
+  .recipe-content h1,
+  .recipe-content h2,
+  .recipe-content h3 {
+    @apply font-dot text-[var(--color-accent)] mt-6 mb-3 uppercase text-2xl tracking-wide;
+  }
+
+  .recipe-content p {
+    @apply mb-4 text-[#1A202C] opacity-90;
+  }
+
+  .recipe-content strong {
+    @apply text-[var(--color-alert)];
+  }
+</style>

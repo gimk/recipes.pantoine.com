@@ -1,0 +1,72 @@
+---
+title: "Crème aux œufs légère, au chocolat et fève de Tonka"
+description: "Une crème dessert légère fondante au subtil arôme de fève de Tonka. Environ 180 kcal par portion."
+baseServings: 4
+kcal: 180
+difficulty:
+  prep: 3
+  technique: 4
+  cleanup: 3
+ingredients:
+  - name: "Lait demi-écrémé"
+    quantity: 500
+    unit: "ml"
+  - name: "Sucre"
+    quantity: 40
+    unit: "g"
+  - name: "Stevia (ou 20g de sucre supp.)"
+    quantity: 20
+    unit: "g"
+  - name: "Chocolat en poudre non sucré (type Van Houten)"
+    quantity: 25
+    unit: "g"
+  - name: "Fève de Tonka"
+    quantity: 0.5
+    unit: "unité"
+  - name: "Œufs moyens"
+    quantity: 3
+    unit: "unités"
+  - name: "Crème liquide 18% (optionnel)"
+    quantity: 1
+    unit: "trait"
+---
+
+import Timer from '../../components/Timer.jsx';
+import DifficultyMap from '../../components/DifficultyMap.astro';
+
+<DifficultyMap difficulty={{prep: 3, technique: 4, cleanup: 3}} />
+
+<br/>
+
+## 1. Infusion (Delta-T)
+Mettre le lait à chauffer doucement, et y incorporer le chocolat et la demi-fève de Tonka râpée. Dès que le lait arrive à frémissement, retirer du feu, couvrir et laisser infuser pendant 30 minutes.
+
+<Timer client:load seconds={1800} label="Temps d'infusion" />
+
+<br/>
+
+## 2. Préparation de l'appareil
+Préchauffer le four à 150°C. 
+
+Casser les 3 œufs dans un cul-de-poule, et les battre doucement avec le sucre et la stevia. Il ne faut pas les faire mousser. 
+
+Y incorporer le lait infusé en fin filet tout en remuant, puis passer l'appareil au chinois. *Optionnel: ajouter le trait de crème ici pour affiner la texture.*
+
+<br/>
+
+## 3. Cuisson Thermique (Bain-marie)
+Remplir les 4 ramequins, puis les faire cuire 30 à 35 minutes au four au bain-marie.
+
+<Timer client:load seconds={2100} label="Cuisson au bain-marie" />
+
+Pour vérifier la cuisson, agiter doucement les ramequins. Le bord des crèmes doit se tenir légèrement mais le centre doit trembloter, comme une crème pâtissière. Elles se solidifieront au froid.
+
+<br/>
+
+## 4. Repos & Maturation
+Placer au réfrigérateur pendant minimum 2h, idéalement toute une nuit. Les arômes continueront à se diffuser et la texture se raffermira au froid.
+
+<br/>
+
+## 5. Service
+Servir tel quel, bien froid, ou avec une pincée de fleur de sel et/ou des amandes effilées toastées pour le croquant.

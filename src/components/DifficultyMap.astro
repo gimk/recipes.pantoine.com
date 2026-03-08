@@ -3,9 +3,9 @@ const { difficulty } = Astro.props;
 
 // Range 1-10
 const stats = [
-  { label: "PREP", value: difficulty?.prep || 0 },
+  { label: "PRÉP", value: difficulty?.prep || 0 },
   { label: "TECH", value: difficulty?.technique || 0 },
-  { label: "CLEAN", value: difficulty?.cleanup || 0 },
+  { label: "NETT", value: difficulty?.cleanup || 0 },
 ];
 
 const getColor = (val: number) => {
@@ -19,7 +19,7 @@ const getColor = (val: number) => {
   <div
     class="font-dot text-sm text-[var(--color-accent)] uppercase tracking-wider mb-4 border-b border-[var(--color-border-grid)] pb-2"
   >
-    &gt; System Difficulty Analysis
+    &gt; Analyse de Difficulté du Système
   </div>
   <div class="flex flex-col gap-3">
     {

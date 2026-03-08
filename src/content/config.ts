@@ -6,6 +6,7 @@ const recipesCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     baseServings: z.number(),
+    kcal: z.number().optional(),
     difficulty: z.object({
       prep: z.number().min(1).max(10),
       technique: z.number().min(1).max(10),
@@ -16,6 +17,7 @@ const recipesCollection = defineCollection({
         name: z.string(),
         quantity: z.number(),
         unit: z.string(),
+        category: z.string().optional(),
       })
     ),
   }),
