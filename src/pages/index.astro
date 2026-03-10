@@ -78,7 +78,7 @@ const allTags = [
         {
           allTags.map((tag) => (
             <button
-              class={`filter-btn px-3 py-1 text-sm font-mono border border-[var(--color-border-grid)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors whitespace-nowrap ${tag === "tous" ? "active bg-[var(--color-accent)] text-white hover:text-white" : "text-[#1A202C] opacity-80"}`}
+              class={`filter-btn px-3 py-1 text-sm font-mono border border-[var(--color-border-grid)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors whitespace-nowrap ${tag === "tous" ? "active bg-[var(--color-accent)] text-white" : "text-[#1A202C] opacity-80"}`}
               data-filter={tag}
             >
               [{tag.toUpperCase()}]
@@ -132,8 +132,10 @@ const allTags = [
                     class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                   />
                 )}
+                {/* Light blue overlay — fades on hover */}
+                <div class="absolute inset-0 z-10 bg-[var(--color-accent)]/10 group-hover:opacity-0 transition-opacity duration-500 pointer-events-none" />
                 {/* Tags overlaid top-left */}
-                <div class="absolute top-2 left-2 z-10 flex flex-wrap gap-1">
+                <div class="absolute top-2 left-2 z-20 flex flex-wrap gap-1">
                   {recipe.data.tags.map((tag) => (
                     <span class="recipe-tag bg-black/50 text-white backdrop-blur-sm text-xs px-2 py-0.5">
                       [{tag.toUpperCase()}]
@@ -144,7 +146,7 @@ const allTags = [
 
               <div class="p-6 flex flex-col flex-grow justify-between">
                 <div>
-                  <div class="flex items-center justify-end mb-3">
+                  <div class="flex items-center justify-start mb-3">
                     <span class="font-mono text-xs opacity-60 flex gap-3">
                       {recipe.data.kcal && <span>{recipe.data.kcal} KCAL</span>}
                       <span>{recipe.data.baseServings} PORTIONS</span>
@@ -160,9 +162,7 @@ const allTags = [
 
                 <div class="mt-6 flex justify-between items-center font-mono text-sm border-t border-[var(--color-border-grid)] pt-3 border-opacity-50">
                   <div class="flex gap-4">
-                    <span>P:{recipe.data.difficulty.prep}</span>
-                    <span>T:{recipe.data.difficulty.technique}</span>
-                    <span>N:{recipe.data.difficulty.cleanup}</span>
+                    <span>{recipe.data.ingredients.length} INGRÉDIENTS</span>
                   </div>
                   <span class="btn-execute">VOIR LA RECETTE</span>
                 </div>
@@ -222,3 +222,10 @@ const allTags = [
   setupFilters();
   document.addEventListener("astro:page-load", setupFilters);
 </script>
+
+<style>
+  /* Keep active filter button text white (not blue-on-blue) on hover */
+  .filter-btn.active:hover {
+    color: white !important;
+  }
+</style>

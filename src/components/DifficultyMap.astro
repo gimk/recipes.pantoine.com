@@ -3,9 +3,9 @@ const { difficulty } = Astro.props;
 
 // Range 1-10
 const stats = [
-  { label: "PRÉP", value: difficulty?.prep || 0 },
-  { label: "TECH", value: difficulty?.technique || 0 },
-  { label: "NETT", value: difficulty?.cleanup || 0 },
+  { label: "PRÉPARATION", value: difficulty?.prep || 0 },
+  { label: "TECHNIQUE", value: difficulty?.technique || 0 },
+  { label: "NETTOYAGE", value: difficulty?.cleanup || 0 },
 ];
 
 const getColor = (val: number) => {
@@ -25,7 +25,9 @@ const getColor = (val: number) => {
     {
       stats.map((stat) => (
         <div class="flex items-center gap-4">
-          <span class="font-mono text-xs w-10 font-bold">{stat.label}</span>
+          <span class="font-mono text-xs w-20 shrink-0 font-bold">
+            {stat.label}
+          </span>
           <div class="flex-1 h-3 flex gap-1">
             {Array.from({ length: 10 }).map((_, i) => {
               const isActive = i < stat.value;
