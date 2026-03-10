@@ -32,19 +32,24 @@ ingredients:
 ---
 
 import Timer from '../../components/Timer.jsx';
+import RecipeStep from '../../components/RecipeStep.astro';
+import step1Img from '../../assets/recipes/steps/chou-step-1.png';
+import step2Img from '../../assets/recipes/steps/chou-step-2.png';
+import step3Img from '../../assets/recipes/steps/chou-step-3.png';
+import step4Img from '../../assets/recipes/steps/chou-step-4.png';
+import step5Img from '../../assets/recipes/steps/chou-step-5.png';
 
 <br/>
 
-## 1. Coloration à la Poêle
+<RecipeStep title="1. Coloration à la Poêle" image={step1Img} alt="Chou grillé à la poêle">
 Préchauffer le four à environ 180°C.
 
 Couper le chou en quartiers (en conservant un morceau de trognon sur chaque quartier pour maintenir les feuilles ensemble).
 
 Faire chauffer une casserole ou une cocotte avec un peu d'huile. Y déposer les quartiers de chou face coupée vers le bas. Les faire griller à feu vif jusqu'à ce qu'ils soient très fortement marqués, avec des zones presque brûlées (cette torréfaction extrême est cruciale pour le goût final).
+</RecipeStep>
 
-<br/>
-
-## 2. Mouillage et Cuisson à l'Étouffée
+<RecipeStep title="2. Mouillage et Cuisson à l'Étouffée" image={step2Img} alt="Cuisson au bouillon">
 Disposer les quartiers de chou bien grillés dans un plat allant au four (ou conserver dans la cocotte si elle est adaptée).
 
 Mouiller à mi-hauteur avec un bouillon de volaille très corsé et bien salé (les feuilles épaisses du chou ont besoin d'une forte salinité pour s'imprégner).
@@ -54,24 +59,22 @@ Fermer le plat le plus hermétiquement possible avec du papier d'aluminium (ou l
 <Timer client:load seconds={5400} label="Cuisson à l'étouffée" />
 
 Pour vérifier la cuisson, insérer la lame d'un couteau directement dans le pied central du chou : elle doit y pénétrer sans aucune résistance.
+</RecipeStep>
 
-<br/>
-
-## 3. Réduction et Montage au Beurre (Optionnel)
+<RecipeStep title="3. Réduction et Montage au Beurre (Optionnel)" image={step3Img} alt="Montage au beurre">
 *(Pour un nappage "restaurant")* : Une fois le chou cuit, retirer délicatement les quartiers et les réserver au chaud. 
 
 Récupérer le bouillon de cuisson saturé de sucs dans une petite casserole et le faire réduire à forte ébullition jusqu'à obtenir une consistance sirupeuse. Hors du feu, y incorporer vigoureusement une belle noix de beurre froid pour "monter la sauce" et lui donner du liant et de la brillance.
+</RecipeStep>
 
-<br/>
-
-## 4. Dressage et Service
+<RecipeStep title="4. Dressage et Service" image={step4Img} alt="Chou braisé dressé sur hummus">
 Pour le dressage, étaler généreusement une grosse cuillère à soupe de hummus au fond de chaque assiette creuse.
 
 Déposer une belle tranche de chou parfaitement égouttée (et fondante) par-dessus. Napper avec la sauce réduite si vous avez choisi de la réaliser.
+</RecipeStep>
 
-<br/>
-
-## 5. Alternative (Fenouil)
+<RecipeStep title="5. Alternative (Fenouil)" image={step5Img} alt="Alternative avec fenouil">
 *(Note du cuisinier)* : Ce même procédé (forte coloration + bouillon à l'étouffée + base de hummus) fonctionne très bien avec de gros bulbes de fenouil coupés en quartiers ou en moitiés. Le temps de cuisson au four est alors réduit à environ **40 à 45 minutes**.
 
 <Timer client:load seconds={2700} label="Cuisson au four (Variante Fenouil)" />
+</RecipeStep>

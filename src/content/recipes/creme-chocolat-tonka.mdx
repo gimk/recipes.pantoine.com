@@ -34,38 +34,41 @@ ingredients:
 ---
 
 import Timer from '../../components/Timer.jsx';
+import RecipeStep from '../../components/RecipeStep.astro';
+import step1Img from '../../assets/recipes/steps/tonka-step-1.png';
+import step2Img from '../../assets/recipes/steps/tonka-step-2.png';
+import step3Img from '../../assets/recipes/steps/tonka-step-3.png';
+import step4Img from '../../assets/recipes/steps/tonka-step-4.png';
+import step5Img from '../../assets/recipes/steps/tonka-step-5.png';
 
 <br/>
 
-## 1. Infusion du Lait
+<RecipeStep title="1. Infusion du Lait" image={step1Img} alt="Infusion du chocolat et tonka">
 Mettre le lait à chauffer doucement, et y incorporer le chocolat et la demi-fève de Tonka râpée. Dès que le lait arrive à frémissement, retirer du feu, couvrir et laisser infuser pendant 30 minutes.
 
 <Timer client:load seconds={1800} label="Temps d'infusion" />
+</RecipeStep>
 
-<br/>
-
-## 2. Préparation de l'appareil
+<RecipeStep title="2. Préparation de l'appareil" image={step2Img} alt="Préparation de l'appareil aux oeufs">
 Préchauffer le four à 150°C. 
 
 Casser les 3 œufs dans un cul-de-poule, et les battre doucement avec le sucre et la stevia. Il ne faut pas les faire mousser. 
 
 Y incorporer le lait infusé en fin filet tout en remuant, puis passer l'appareil au chinois. *Optionnel: ajouter le trait de crème ici pour affiner la texture.*
+</RecipeStep>
 
-<br/>
-
-## 3. Cuisson au Bain-marie
+<RecipeStep title="3. Cuisson au Bain-marie" image={step3Img} alt="Verser dans les ramequins">
 Remplir les 4 ramequins, puis les faire cuire 30 à 35 minutes au four au bain-marie.
 
 <Timer client:load seconds={2100} label="Cuisson au bain-marie" />
 
 Pour vérifier la cuisson, agiter doucement les ramequins. Le bord des crèmes doit se tenir légèrement mais le centre doit trembloter, comme une crème pâtissière. Elles se solidifieront au froid.
+</RecipeStep>
 
-<br/>
-
-## 4. Repos au Froid
+<RecipeStep title="4. Repos au Froid" image={step4Img} alt="Mise au frais">
 Placer au réfrigérateur pendant minimum 2h, idéalement toute une nuit. Les arômes continueront à se diffuser et la texture se raffermira au froid.
+</RecipeStep>
 
-<br/>
-
-## 5. Service
+<RecipeStep title="5. Service" image={step5Img} alt="Crème chocolat tonka servie">
 Servir tel quel, bien froid, ou avec une pincée de fleur de sel et/ou des amandes effilées toastées pour le croquant.
+</RecipeStep>
