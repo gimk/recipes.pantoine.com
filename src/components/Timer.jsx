@@ -17,43 +17,73 @@ export default function Timer({ seconds, label }) {
     return () => clearInterval(intervalRef.current);
   }, [isRunning, timeLeft]);
 
-  const toggleTimer = () => setIsRunning(!isRunning);
+  const toggleTimer = () => {
+    if (timeLeft > 0) setIsRunning(!isRunning);
+  };
   const resetTimer = () => {
     setIsRunning(false);
     setTimeLeft(seconds);
   };
 
   const formatTime = (time) => {
+    if (time >= 3600) {
+      const h = Math.floor(time / 3600);
+      const m = Math.floor((time % 3600) / 60);
+      const s = time % 60;
+      return `${h}h${m.toString().padStart(2, '0')}m${s.toString().padStart(2, '0')}s`;
+    }
     const mins = Math.floor(time / 60);
     const secs = time % 60;
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
+  const progress = (seconds - timeLeft) / seconds; // 0 → 1
+  const isDone = timeLeft === 0;
+
   return (
-    <div className="surface-card p-4 my-4 font-mono flex flex-col gap-2 w-full max-w-sm">
-      <div className="flex justify-between items-center border-b border-[var(--color-border-grid)] pb-2">
-        <span className="font-dot text-sm text-[var(--color-accent)] uppercase tracking-wider">
-          &gt; {label || 'Timer Module'}
-        </span>
-        <span className={`text-xl font-bold ${timeLeft === 0 ? 'text-[var(--color-alert)] animate-pulse' : 'text-[#1A202C]'}`}>
-          {formatTime(timeLeft)}
-        </span>
+    <div
+      className="inline-flex items-center gap-3 my-3 px-3 py-2 border border-[var(--color-border-grid)] bg-[var(--color-surface)] font-mono text-sm cursor-pointer select-none group hover:border-[var(--color-accent)] transition-colors"
+      onClick={isDone ? resetTimer : toggleTimer}
+      title={isDone ? 'Réinitialiser' : isRunning ? 'Pause' : 'Démarrer'}
+      style={{ userSelect: 'none' }}
+    >
+      {/* Icon */}
+      <span
+        className={`text-xs transition-colors ${isDone ? 'text-[var(--color-alert)]' : 'text-[var(--color-accent)]'}`}
+      >
+        {isDone ? '✓' : isRunning ? '▐▐' : '▶'}
+      </span>
+
+      {/* Label */}
+      <span className="opacity-70 group-hover:opacity-100 transition-opacity text-xs uppercase tracking-wider max-w-[180px] truncate">
+        {label || 'Timer'}
+      </span>
+
+      {/* Gauge pill */}
+      <div className="relative w-24 h-2 bg-[var(--color-border-grid)] overflow-hidden shrink-0">
+        <div
+          className={`absolute inset-y-0 left-0 transition-all duration-1000 ${isDone ? 'bg-[var(--color-alert)]' : 'bg-[var(--color-accent)]'}`}
+          style={{ width: `${Math.round(progress * 100)}%` }}
+        />
       </div>
-      <div className="flex gap-2 mt-2">
-        <button 
-          onClick={toggleTimer}
-          className="flex-1 border border-[var(--color-border-grid)] px-3 py-1 text-sm bg-transparent hover:bg-[var(--color-accent)] hover:text-white transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-          disabled={timeLeft === 0 && !isRunning}
+
+      {/* Time display */}
+      <span
+        className={`font-bold tabular-nums shrink-0 transition-colors ${isDone ? 'text-[var(--color-alert)] animate-pulse' : ''}`}
+      >
+        {formatTime(timeLeft)}
+      </span>
+
+      {/* Reset button — only shown when not at full reset */}
+      {timeLeft !== seconds && (
+        <button
+          onClick={(e) => { e.stopPropagation(); resetTimer(); }}
+          className="text-xs opacity-70 hover:opacity-100 transition-opacity text-[var(--color-accent)] ml-1 cursor-pointer leading-none"
+          title="Réinitialiser"
         >
-          {isRunning ? 'PAUSE' : 'START'}
+          ↺
         </button>
-        <button 
-          onClick={resetTimer}
-          className="flex-1 border border-[var(--color-border-grid)] px-3 py-1 text-sm bg-transparent hover:bg-[var(--color-alert)] hover:text-white transition-colors cursor-pointer"
-        >
-          RESET
-        </button>
-      </div>
+      )}
     </div>
   );
 }

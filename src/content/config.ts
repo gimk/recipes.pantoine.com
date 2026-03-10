@@ -6,7 +6,7 @@ const recipesCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     cover: image().optional(),
-    category: z.string(),
+    tags: z.array(z.string()),
     baseServings: z.number(),
     kcal: z.number().optional(),
     difficulty: z.object({

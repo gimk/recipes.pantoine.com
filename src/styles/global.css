@@ -130,7 +130,7 @@ input, button, select, textarea {
     @apply font-mono text-sm opacity-80 hover:text-[var(--color-accent)] hover:opacity-100 transition-colors;
   }
   .hud-container {
-    @apply w-full h-64 md:h-96 mb-8 border border-[var(--color-border-grid)] p-2 relative overflow-hidden;
+    @apply w-full mb-8 border border-[var(--color-border-grid)] p-2 relative overflow-hidden;
   }
   .hud-overlay {
     @apply absolute inset-2 pointer-events-none z-10 border border-[var(--color-accent)] opacity-20 group-hover:opacity-40 transition-opacity;

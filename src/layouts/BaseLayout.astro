@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
 const {
-  title = "Kitchen OS",
-  description = "Protocole de Gastronomie Moderniste",
+  title = "Antoine's Kitchen",
+  description = "Recettes de cuisine",
+  fullWidth = false,
 } = Astro.props;
 ---
 
@@ -21,7 +22,7 @@ const {
   </head>
   <body class="kitchen-os bg-[#F8F9FA] text-[#1A202C] min-h-screen">
     <div class="scanline"></div>
-    <div class="p-6 md:p-12 max-w-5xl mx-auto">
+    <div class={`p-6 md:p-12 ${fullWidth ? 'w-full max-w-[1600px] mx-auto' : 'max-w-5xl mx-auto'}`}>
       <slot />
     </div>
   </body>
