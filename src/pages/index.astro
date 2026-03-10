@@ -9,15 +9,23 @@ const recipes = await getCollection("recipes");
 <BaseLayout title="Kitchen OS | Main">
   <div class="mb-12 flex justify-between items-end">
     <div>
-      <h1 class="text-4xl text-[var(--color-accent)] mb-2 mt-0 glow-accent flex items-center gap-1">
-        /KITCHEN_OS<span class="cursor-blink"></span>
+      <h1
+        class="text-4xl text-[var(--color-accent)] mb-2 mt-0 glow-accent flex items-center gap-1 uppercase tracking-wide"
+      >
+        /antoinepoups_kitchen<span class="cursor-blink"></span>
       </h1>
       <p class="font-mono text-sm opacity-80">
-        Système initialisé. En attente d'instructions culinaires...
+        Mes recettes testées et approuvées...
       </p>
     </div>
-    <div class="hidden md:flex flex-col text-right font-mono text-xs opacity-70">
-      <span>SYSTEM STATUS: <span class="text-[var(--color-accent)] glow-accent">SECURE</span></span>
+    <div
+      class="hidden md:flex flex-col text-right font-mono text-xs opacity-70"
+    >
+      <span
+        >SYSTEM STATUS: <span class="text-[var(--color-accent)] glow-accent"
+          >SECURE</span
+        ></span
+      >
       <span>UPTIME: <span id="uptime-counter">00:00:00</span></span>
     </div>
   </div>
@@ -39,20 +47,31 @@ const recipes = await getCollection("recipes");
               style="clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);"
             >
               {/* Corner Stroke */}
-              <svg class="absolute bottom-[-1px] right-[-1px] w-[16px] h-[16px] pointer-events-none z-20" viewBox="0 0 16 16">
-                <line x1="16" y1="0" x2="0" y2="16" stroke="var(--color-border-grid)" stroke-width="1.5" class="group-hover:stroke-[var(--color-accent)] transition-colors duration-300" />
+              <svg
+                class="absolute bottom-[-1px] right-[-1px] w-[16px] h-[16px] pointer-events-none z-20"
+                viewBox="0 0 16 16"
+              >
+                <line
+                  x1="16"
+                  y1="0"
+                  x2="0"
+                  y2="16"
+                  stroke="var(--color-border-grid)"
+                  stroke-width="1.5"
+                  class="group-hover:stroke-[var(--color-accent)] transition-colors duration-300"
+                />
               </svg>
-              
+
               {/* Decorative Brackets */}
-              <div class="absolute top-2 left-2 w-2 h-2 border-t-2 border-l-2 border-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
-              <div class="absolute top-2 right-2 w-2 h-2 border-t-2 border-r-2 border-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
-              <div class="absolute bottom-2 left-2 w-2 h-2 border-b-2 border-l-2 border-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none"></div>
+              <div class="absolute top-2 left-2 w-2 h-2 border-t-2 border-l-2 border-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none" />
+              <div class="absolute top-2 right-2 w-2 h-2 border-t-2 border-r-2 border-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none" />
+              <div class="absolute bottom-2 left-2 w-2 h-2 border-b-2 border-l-2 border-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none" />
               {recipe.data.cover && (
                 <div class="h-48 w-full border-b border-[var(--color-border-grid)] overflow-hidden">
-                  <Image 
-                    src={recipe.data.cover} 
-                    alt={recipe.data.title} 
-                    class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" 
+                  <Image
+                    src={recipe.data.cover}
+                    alt={recipe.data.title}
+                    class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                   />
                 </div>
               )}
@@ -79,7 +98,7 @@ const recipes = await getCollection("recipes");
                   <div class="flex gap-4">
                     <span>P:{recipe.data.difficulty.prep}</span>
                     <span>T:{recipe.data.difficulty.technique}</span>
-                    <span>C:{recipe.data.difficulty.cleanup}</span>
+                    <span>N:{recipe.data.difficulty.cleanup}</span>
                   </div>
                   <span class="text-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 whitespace-nowrap hidden sm:inline-block ml-2 font-bold tracking-widest glow-accent">
                     EXÉCUTER_
@@ -95,14 +114,14 @@ const recipes = await getCollection("recipes");
 </BaseLayout>
 
 <script>
-  const uptimeEl = document.getElementById('uptime-counter');
+  const uptimeEl = document.getElementById("uptime-counter");
   if (uptimeEl) {
     let seconds = 0;
     setInterval(() => {
       seconds++;
-      const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
-      const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
-      const s = String(seconds % 60).padStart(2, '0');
+      const h = String(Math.floor(seconds / 3600)).padStart(2, "0");
+      const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+      const s = String(seconds % 60).padStart(2, "0");
       uptimeEl.innerText = `${h}:${m}:${s}`;
     }, 1000);
   }
