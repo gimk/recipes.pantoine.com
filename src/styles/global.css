@@ -21,6 +21,19 @@ body {
   margin: 0;
 }
 
+::selection {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.glow-accent {
+  text-shadow: 0 0 8px rgba(0, 209, 255, 0.6);
+}
+
+.glow-alert {
+  text-shadow: 0 0 8px rgba(255, 75, 43, 0.6);
+}
+
 h1, h2, h3, h4, h5, h6, .font-dot {
   font-family: 'DotGothic16', sans-serif;
   text-transform: uppercase;
@@ -53,4 +66,28 @@ input, button, select, textarea {
     rgba(0, 0, 0, 0.02)
   );
   background-size: 100% 4px;
+  animation: scanlines 90s linear infinite;
+}
+
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100vh;
+  }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  background-color: var(--color-accent);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0; }
 }
