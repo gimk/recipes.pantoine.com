@@ -13,8 +13,53 @@ const allTags = [
 <BaseLayout title="Antoine's Kitchen | Accueil" fullWidth={true}>
   <div class="os-header mb-8">
     <div>
+      <!-- Portfolio Pill -->
+      <div class="mb-8 flex">
+        <a
+          href="https://www.pantoine.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="relative flex flex-nowrap items-center justify-center gap-3 px-3 py-2 border border-[var(--color-border-grid)] hover:border-[var(--color-accent)] rounded-full font-mono text-sm group transition-all duration-300 ease-in-out bg-white"
+        >
+          <div class="flex items-center gap-2">
+            <svg
+              width="14"
+              height="14"
+              viewBox="12.7 17.8 37 37"
+              xmlns="http://www.w3.org/2000/svg"
+              class="text-[var(--color-accent)]"
+              fill="currentColor"
+            >
+              <path
+                d="M 31.2344 54.7305 C 31.8438 54.7305 32.2891 54.2852 32.4062 53.6524 C 34.0703 40.8086 35.8750 38.8633 48.5781 37.4570 C 49.2344 37.3867 49.6797 36.8945 49.6797 36.2852 C 49.6797 35.6758 49.2344 35.2070 48.5781 35.1133 C 35.8750 33.7070 34.0703 31.7617 32.4062 18.9180 C 32.2891 18.2852 31.8438 17.8633 31.2344 17.8633 C 30.6250 17.8633 30.1797 18.2852 30.0860 18.9180 C 28.4219 31.7617 26.5938 33.7070 13.9140 35.1133 C 13.2344 35.2070 12.7891 35.6758 12.7891 36.2852 C 12.7891 36.8945 13.2344 37.3867 13.9140 37.4570 C 26.5703 39.1211 28.3281 40.8321 30.0860 53.6524 C 30.1797 54.2852 30.6250 54.7305 31.2344 54.7305 Z"
+              ></path>
+            </svg>
+            <span
+              class="whitespace-nowrap opacity-80 group-hover:opacity-100 transition-opacity"
+              >Visitez mon portfolio</span
+            >
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            class="size-4 stroke-2 fill-none stroke-current group-hover:stroke-[var(--color-accent)] transition-colors duration-300"
+          >
+            <line
+              x1="5"
+              y1="12"
+              x2="19"
+              y2="12"
+              class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"
+            ></line>
+            <polyline
+              points="12 5 19 12 12 19"
+              class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out"
+            ></polyline>
+          </svg>
+        </a>
+      </div>
       <h1 class="os-title">
-        /antoinepoups_kitchen<span class="cursor-blink"></span>
+        /antoines_kitchen<span class="cursor-blink"></span>
       </h1>
       <p class="os-subtitle">Mes recettes testées et approuvées...</p>
     </div>
