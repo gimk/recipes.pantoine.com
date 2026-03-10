@@ -35,7 +35,7 @@ const groupedIngredients = recipe.data.ingredients.reduce(
   <div class="mb-8">
     <a
       href="/"
-      class="font-mono text-sm opacity-80 hover:text-[var(--color-accent)] hover:opacity-100 transition-colors"
+      class="nav-link-back"
     >
       ← RETOUR À L'ACCUEIL
     </a>
@@ -45,9 +45,9 @@ const groupedIngredients = recipe.data.ingredients.reduce(
     <header class="mb-8 border-b border-[var(--color-border-grid)] pb-6">
       {
         recipe.data.cover && (
-          <div class="w-full h-64 md:h-96 mb-8 border border-[var(--color-border-grid)] p-2 relative group overflow-hidden">
+          <div class="hud-container group">
             {/* HUD Overlay */}
-            <div class="absolute inset-2 pointer-events-none z-10 border border-[var(--color-accent)] opacity-20 group-hover:opacity-40 transition-opacity">
+            <div class="hud-overlay">
               <div class="absolute top-0 left-1/2 w-[1px] h-4 bg-[var(--color-accent)] -translate-x-1/2" />
               <div class="absolute bottom-0 left-1/2 w-[1px] h-4 bg-[var(--color-accent)] -translate-x-1/2" />
               <div class="absolute top-1/2 left-0 w-4 h-[1px] bg-[var(--color-accent)] -translate-y-1/2" />
@@ -73,16 +73,9 @@ const groupedIngredients = recipe.data.ingredients.reduce(
       <p class="font-mono text-sm opacity-80">{recipe.data.description}</p>
 
       <div class="mt-6 font-mono text-sm flex gap-6">
-        <div
-          class="flex flex-col border-l-4 border-l-[var(--color-accent)] border-y border-r border-[var(--color-border-grid)] bg-[var(--color-surface)] p-3 min-w-[120px] relative"
-        >
-          <div
-            class="absolute top-0 right-0 w-2 h-2 border-b border-l border-[var(--color-border-grid)]"
-          >
-          </div>
-          <span
-            class="text-[var(--color-accent)] font-bold mb-1 opacity-80 text-xs glow-accent"
-          >
+        <div class="data-panel">
+          <div class="data-panel-corner"></div>
+          <span class="data-panel-label">
             PORTIONS
           </span>
           <span class="text-2xl mt-1 font-dot">{recipe.data.baseServings}</span>
@@ -90,9 +83,9 @@ const groupedIngredients = recipe.data.ingredients.reduce(
 
         {
           recipe.data.kcal && (
-            <div class="flex flex-col border-l-4 border-l-[var(--color-accent)] border-y border-r border-[var(--color-border-grid)] bg-[var(--color-surface)] p-3 min-w-[120px] relative">
-              <div class="absolute top-0 right-0 w-2 h-2 border-b border-l border-[var(--color-border-grid)]" />
-              <span class="text-[var(--color-accent)] font-bold mb-1 opacity-80 text-xs glow-accent">
+            <div class="data-panel">
+              <div class="data-panel-corner" />
+              <span class="data-panel-label">
                 KCAL/PORTION
               </span>
               <span class="text-2xl mt-1 font-dot">{recipe.data.kcal}</span>
@@ -120,16 +113,16 @@ const groupedIngredients = recipe.data.ingredients.reduce(
                 )}
                 <ul class="font-mono text-sm flex flex-col gap-3 m-0 list-none ingredient-list">
                   {items.map((ing) => (
-                    <li class="flex justify-between items-start border-b border-[var(--color-border-grid)] border-opacity-50 pb-2 group hover:bg-[var(--color-border-grid)] hover:bg-opacity-20 transition-all px-2 -mx-2 cursor-pointer select-none">
+                    <li class="ingredient-item group">
                       <div class="flex gap-1 items-start">
-                        <span class="text-[var(--color-accent)] opacity-50 group-hover:opacity-100 transition-opacity shrink-0 font-bold w-7 whitespace-nowrap check-box">
+                        <span class="ingredient-checkbox check-box">
                           [ ]
                         </span>
                         <span class="ingredient-name transition-colors">
                           {ing.name}
                         </span>
                       </div>
-                      <span class="font-bold text-xs text-right shrink-0 text-[var(--color-accent)] opacity-80 group-hover:opacity-100 transition-opacity mt-[2px] ml-2">
+                      <span class="ingredient-quantity">
                         {ing.quantity ? `${ing.quantity} ` : ""}
                         {ing.unit}
                       </span>

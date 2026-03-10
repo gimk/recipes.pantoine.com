@@ -26,11 +26,11 @@ body {
   color: #fff;
 }
 
-.glow-accent {
+@utility glow-accent {
   text-shadow: 0 0 8px rgba(0, 209, 255, 0.6);
 }
 
-.glow-alert {
+@utility glow-alert {
   text-shadow: 0 0 8px rgba(255, 75, 43, 0.6);
 }
 
@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6, .font-dot {
 }
 
 /* Sharp UI */
-.surface-card {
+@utility surface-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border-grid);
   border-radius: 0 !important;
@@ -90,4 +90,67 @@ input, button, select, textarea {
 @keyframes blink {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 0; }
+}
+
+@layer components {
+  /* Layout & Typography */
+  .os-header {
+    @apply mb-12 flex justify-between items-end;
+  }
+  .os-title {
+    @apply text-4xl text-[var(--color-accent)] mb-2 mt-0 glow-accent flex items-center gap-1 uppercase tracking-wide;
+  }
+  .os-subtitle {
+    @apply font-mono text-sm opacity-80;
+  }
+  .os-system-status {
+    @apply hidden md:flex flex-col text-right font-mono text-xs opacity-70;
+  }
+  .section-heading {
+    @apply font-dot text-[var(--color-accent)] mt-0 tracking-wider;
+  }
+  
+  /* Recipe Cards */
+  .recipe-card {
+    @apply surface-card relative flex flex-col hover:border-[var(--color-accent)] transition-all duration-300 cursor-pointer no-underline text-inherit block overflow-hidden hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,209,255,0.15)] bg-[var(--color-surface)];
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+  }
+  .card-bracket {
+    @apply absolute w-2 h-2 border-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none;
+  }
+  .recipe-tag {
+    @apply bg-[var(--color-border-grid)] text-[var(--color-accent)] group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors px-2 py-1 text-xs font-bold font-mono border border-transparent group-hover:border-[var(--color-accent)];
+  }
+  .btn-execute {
+    @apply text-[var(--color-accent)] opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0 whitespace-nowrap hidden sm:inline-block ml-2 font-bold tracking-widest glow-accent;
+  }
+
+  /* Recipe Details */
+  .nav-link-back {
+    @apply font-mono text-sm opacity-80 hover:text-[var(--color-accent)] hover:opacity-100 transition-colors;
+  }
+  .hud-container {
+    @apply w-full h-64 md:h-96 mb-8 border border-[var(--color-border-grid)] p-2 relative overflow-hidden;
+  }
+  .hud-overlay {
+    @apply absolute inset-2 pointer-events-none z-10 border border-[var(--color-accent)] opacity-20 group-hover:opacity-40 transition-opacity;
+  }
+  .data-panel {
+    @apply flex flex-col border-l-4 border-l-[var(--color-accent)] border-y border-r border-[var(--color-border-grid)] bg-[var(--color-surface)] p-3 min-w-[120px] relative;
+  }
+  .data-panel-corner {
+    @apply absolute top-0 right-0 w-2 h-2 border-b border-l border-[var(--color-border-grid)];
+  }
+  .data-panel-label {
+    @apply text-[var(--color-accent)] font-bold mb-1 opacity-80 text-xs glow-accent;
+  }
+  .ingredient-item {
+    @apply flex justify-between items-start border-b border-[var(--color-border-grid)]/50 pb-2 hover:bg-[var(--color-border-grid)]/20 transition-all px-2 -mx-2 cursor-pointer select-none;
+  }
+  .ingredient-checkbox {
+    @apply text-[var(--color-accent)] opacity-50 group-hover:opacity-100 transition-opacity shrink-0 font-bold w-7 whitespace-nowrap;
+  }
+  .ingredient-quantity {
+    @apply font-bold text-xs text-right shrink-0 text-[var(--color-accent)] opacity-80 group-hover:opacity-100 transition-opacity mt-[2px] ml-2;
+  }
 }
