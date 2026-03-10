@@ -57,24 +57,29 @@ ingredients:
 ---
 
 import Timer from '../../components/Timer.jsx';
+import RecipeStep from '../../components/RecipeStep.astro';
+import step1Img from '../../assets/recipes/steps/daurade-step-1.png';
+import step2Img from '../../assets/recipes/steps/daurade-step-2.png';
+import step3Img from '../../assets/recipes/steps/daurade-step-3.png';
+import step4Img from '../../assets/recipes/steps/daurade-step-4.png';
+import step5Img from '../../assets/recipes/steps/daurade-step-5.png';
+import step6Img from '../../assets/recipes/steps/daurade-step-6.png';
 
 <br/>
 
-## 1. Infusion du Safran (à préparer 3h à l'avance)
+<RecipeStep title="1. Infusion du Safran (à préparer 3h à l'avance)" image={step1Img} alt="Infusion du safran">
 **Au moins 3 heures avant le service :** Porter une petite quantité d'eau (ou de lait) presque à ébullition. Verser sur les pistils de safran dans un ramequin. Filmer et laisser infuser à température ambiante pour une extraction optimale des arômes et de la couleur.
+</RecipeStep>
 
-<br/>
-
-## 2. Mise en Place
+<RecipeStep title="2. Mise en Place" image={step2Img} alt="Préparation des girolles">
 Si la daurade est entière : l'écailler, lever les filets et retirer la peau (ou demander cette préparation au poissonnier). Réserver les filets au frais.
 
 Laver rapidement les girolles et les nettoyer. Les tailler en 2 ou en 4 selon leur calibre. *Attention, les pieds peuvent être caoutchouteux, ne pas hésiter à les raccourcir ou les enlever.*
 
 Ciseler très finement l'échalote et la gousse d'ail. Réserver.
+</RecipeStep>
 
-<br/>
-
-## 3. Cuisson Délicate du Poisson
+<RecipeStep title="3. Cuisson Délicate du Poisson" image={step3Img} alt="Cuisson de la daurade">
 *Astuce : Si vous ne disposez pas d'une poêle antiadhésive, découper un rond de papier sulfurisé aux dimensions du fond de votre poêle en inox. La chair de la daurade étant fragile, cela empêchera les filets de se disloquer au moment de les retourner.*
 
 Si les filets sont trop grands, couper l'excédent (vous pourrez ajouter ces "parures" taillées en dés lors de la préparation de la sauce).
@@ -84,10 +89,9 @@ Faire chauffer un filet d'huile d'olive dans la poêle. Y déposer délicatement
 <Timer client:load seconds={180} label="Saisie des filets (par face)" />
 
 Saler, poivrer, et ajouter une pincée de piment d'Espelette. Débarrasser les filets sur une assiette. Ajouter quelques gouttes de jus de citron et un peu de zeste sur le poisson. Réserver au chaud.
+</RecipeStep>
 
-<br/>
-
-## 4. Garniture et Sauce
+<RecipeStep title="4. Garniture et Sauce" image={step4Img} alt="Cuisson des girolles">
 Dans la même poêle ou un grand sautoir, ajouter l'huile et les sucs de cuisson du poisson. Ajouter une généreuse noix de beurre. 
 
 Faire revenir les girolles à feu vif avec une grosse pincée de sel. Il est important que toutes les girolles soient en contact direct avec le fond de la poêle pour bien rôtir ; procéder en plusieurs tournées si nécessaire pour éviter qu'elles ne bouillent dans leur propre eau de végétation.
@@ -99,15 +103,14 @@ Déglacer au vin blanc (ou au Cognac) et gratter les sucs au fond de la poêle.
 <Timer client:load seconds={120} label="Réduction du déglaçage" />
 
 Laisser réduire environ 2 minutes, puis incorporer deux bonnes cuillères à soupe de crème fraîche épaisse entière.
+</RecipeStep>
 
-<br/>
-
-## 5. Liaison et Finition
+<RecipeStep title="5. Liaison et Finition" image={step5Img} alt="Sauce safranée">
 Une fois la crème chaude et frémissante, verser l'infusion de safran (liquide + pistils). La sauce va prendre une intense couleur dorée. Saler, poivrer, et laisser mijoter l'ensemble à feu très doux pendant quelques minutes pour lier les saveurs.
+</RecipeStep>
 
-<br/>
-
-## 6. Dressage et Service
+<RecipeStep title="6. Dressage et Service" image={step6Img} alt="Dressage de l'assiette">
 Environ deux minutes avant de servir, redéposer précautionneusement les filets de daurade (et le jus rendu dans l'assiette) directement sur la sauce frémissante pour les réchauffer doucement et achever leur cuisson à cœur.
 
 Servir immédiatement dans des assiettes chaudes, en veillant à bien napper le poisson de sauce safranée et de girolles.
+</RecipeStep>

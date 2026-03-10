@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  image?: ImageMetadata;
+  alt?: string;
+}
+
+const { title, image, alt = "Step image" } = Astro.props;
+---
+
+<div class="flex flex-col md:flex-row gap-6 items-start mb-8 last:mb-0">
+  <div class="flex-1 w-full text-[#1A202C]">
+    <h2
+      class="font-dot text-[var(--color-accent)] border-[var(--color-border-grid)] pb-2 mb-4 mt-0 text-xl tracking-wider"
+    >
+      {title}
+    </h2>
+    <div class="recipe-content leading-relaxed">
+      <slot />
+    </div>
+  </div>
+  {
+    image && (
+      <div class="w-full md:w-[300px] lg:w-[350px] shrink-0 md:mt-1.5">
+        <div class="hud-container group relative w-full">
+          <div class="hud-overlay z-10">
+            <div class="absolute top-0 left-1/2 w-[1px] h-2 bg-[var(--color-accent)] -translate-x-1/2" />
+            <div class="absolute bottom-0 left-1/2 w-[1px] h-2 bg-[var(--color-accent)] -translate-x-1/2" />
+            <div class="absolute top-1/2 left-0 w-2 h-[1px] bg-[var(--color-accent)] -translate-y-1/2" />
+            <div class="absolute top-1/2 right-0 w-2 h-[1px] bg-[var(--color-accent)] -translate-y-1/2" />
+          </div>
+          <Image
+            src={image}
+            alt={alt}
+            class="w-full object-cover aspect-[4/3] opacity-90 group-hover:opacity-100 transition-all duration-300 relative z-0"
+            width={600}
+          />
+        </div>
+      </div>
+    )
+  }
+</div>
