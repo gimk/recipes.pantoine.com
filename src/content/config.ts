@@ -2,9 +2,10 @@ import { z, defineCollection } from 'astro:content';
 
 const recipesCollection = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
+    cover: image().optional(),
     category: z.string(),
     baseServings: z.number(),
     kcal: z.number().optional(),

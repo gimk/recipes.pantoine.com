@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const recipes = await getCollection("recipes");
@@ -42,6 +43,15 @@ const groupedIngredients = recipe.data.ingredients.reduce(
 
   <article class="surface-card p-6 md:p-8">
     <header class="mb-8 border-b border-[var(--color-border-grid)] pb-6">
+      {recipe.data.cover && (
+        <div class="w-full h-64 md:h-96 mb-8 border border-[var(--color-border-grid)] p-2">
+          <Image 
+            src={recipe.data.cover} 
+            alt={recipe.data.title} 
+            class="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700" 
+          />
+        </div>
+      )}
       <div class="flex items-center gap-3 mb-4">
         <span
           class="bg-[var(--color-accent)] text-white px-2 py-1 text-xs font-bold w-fit"
