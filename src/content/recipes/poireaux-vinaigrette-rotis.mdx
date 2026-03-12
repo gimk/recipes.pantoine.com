@@ -53,24 +53,29 @@ ingredients:
 ---
 
 import Timer from '../../components/Timer.jsx';
+import RecipeStep from '../../components/RecipeStep.astro';
+import step1Img from '../../assets/recipes/steps/poireaux-step-1.png';
+import step2Img from '../../assets/recipes/steps/poireaux-step-2.png';
+import step3Img from '../../assets/recipes/steps/poireaux-step-3.png';
+import step4Img from '../../assets/recipes/steps/poireaux-step-4.png';
+import step5Img from '../../assets/recipes/steps/poireaux-step-5.png';
+import step6Img from '../../assets/recipes/steps/poireaux-step-6.png';
 
 <br/>
 
-## 1. Préparation Initiale
+<RecipeStep title="1. Préparation Initiale" image={step1Img} alt="Préparation des poireaux">
 Préchauffer le four à 190°C. 
 
 Nettoyer soigneusement les poireaux pour éliminer toute trace de terre. Les couper en deux dans le sens de la longueur et retirer la première couche extérieure pour ne conserver que les fûts tendres.
+</RecipeStep>
 
-<br/>
-
-## 2. Coloration à la Poêle
+<RecipeStep title="2. Coloration à la Poêle" image={step2Img} alt="Poireaux grillés à la poêle">
 Faire chauffer une sauteuse (compatible avec un passage au four) avec un peu d'huile. 
 
 Disposer les demi-poireaux face coupée vers le bas, en contact direct avec la source de chaleur. Laisser dorer et griller légèrement la surface plane pour développer les arômes torréfiés.
+</RecipeStep>
 
-<br/>
-
-## 3. Cuisson Mixte Poêle-Four
+<RecipeStep title="3. Cuisson Mixte Poêle-Four" image={step3Img} alt="Cuisson des poireaux au bouillon au four">
 Ajouter le cube de bouillon émietté directement dans la sauteuse (le bouillon doit être très corsé), ainsi que le morceau de beurre.
 
 Mouiller avec de l'eau jusqu'à recouvrir les poireaux à mi-hauteur. Porter à ébullition sur le feu pour assurer la dissolution correcte du cube de bouillon.
@@ -78,24 +83,22 @@ Mouiller avec de l'eau jusqu'à recouvrir les poireaux à mi-hauteur. Porter à 
 Transférer immédiatement la sauteuse au four chaud. Cuire jusqu'à ce que les poireaux soient extrêmement tendres et que la face supérieure soit légèrement grillée à sec (sans laisser brûler). 
 
 <Timer client:load seconds={1500} label="Rôtissage au four" />
+</RecipeStep>
 
-<br/>
-
-## 4. Refroidissement
+<RecipeStep title="4. Refroidissement" image={step4Img} alt="Refroidissement des poireaux">
 Sortir du four. Égoutter délicatement les poireaux pour retirer l'excédent de liquide de cuisson, puis les disposer à plat dans un plat de service.
 
 Laisser reposer à l'air libre jusqu'à atteindre une température tiède.
+</RecipeStep>
 
-<br/>
-
-## 5. Marinade à la Vinaigrette
+<RecipeStep title="5. Marinade à la Vinaigrette" image={step5Img} alt="Nappage avec la vinaigrette aux échalotes">
 Napper généreusement les poireaux tièdes avec une vinaigrette "maison", préalablement additionnée des échalotes finement ciselées. Les poireaux doivent être littéralement recouverts.
 
 Placer le plat au réfrigérateur. Cette étape est cruciale : le froid va permettre aux poireaux de se gorger de la vinaigrette, développant toutes les saveurs en profondeur.
 
 <Timer client:load seconds={1200} label="Imprégnation active au froid" />
+</RecipeStep>
 
-<br/>
-
-## 6. Service
+<RecipeStep title="6. Service" image={step6Img} alt="Poireaux vinaigrette rôtis service final">
 Servir bien frais. Le but final est d'obtenir une texture ultra-fondante saturée en saveurs intenses. Enjoy!
+</RecipeStep>

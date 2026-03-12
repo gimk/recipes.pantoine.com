@@ -57,28 +57,32 @@ ingredients:
 ---
 
 import Timer from '../../components/Timer.jsx';
+import RecipeStep from '../../components/RecipeStep.astro';
+import step1Img from '../../assets/recipes/steps/veloute-step-1.png';
+import step2Img from '../../assets/recipes/steps/veloute-step-2.png';
+import step3Img from '../../assets/recipes/steps/veloute-step-3.png';
+import step4Img from '../../assets/recipes/steps/veloute-step-4.png';
+import step5Img from '../../assets/recipes/steps/veloute-step-5.png';
 
 <br/>
 
-## 1. Cuisson du Butternut au Bouillon
+<RecipeStep title="1. Cuisson du Butternut au Bouillon" image={step1Img} alt="Cuisson des cubes de butternut au bouillon">
 Mettre une grande casserole d'eau à ébullition. Saler abondamment, puis ajouter le bouillon cube de volaille et le bouquet garni. 
 
 Couper le butternut en cubes. Plonger les cubes dans le bouillon frémissant. Cuire jusqu'à ce que la chair soit parfaitement tendre (la lame d'un couteau doit y pénétrer sans aucune résistance).
 
 <Timer client:load seconds={1500} label="Cuisson du Butternut" />
+</RecipeStep>
 
-<br/>
-
-## 2. Rôtissage des Oignons au Four
+<RecipeStep title="2. Rôtissage des Oignons au Four" image={step2Img} alt="Rôtissage des oignons, échalotes et ail">
 Pendant la cuisson de la courge, allumer le four en mode grill au maximum (ou à 250°C).
 
 Sur une plaque de cuisson, étaler les oignons, les échalotes et les gousses d'ail coupés en quartiers ou en tranches épaisses. Badigeonner l'ensemble d'huile d'olive, saler, et parsemer d'herbes de Provence ou de thym.
 
 Enfourner sous le grill jusqu'à ce que les alliacés soient bien dorés, voire qu'ils commencent par endroits à brûler. Cette torréfaction poussée apportera des notes fumées et beaucoup de profondeur au velouté.
+</RecipeStep>
 
-<br/>
-
-## 3. Mixage
+<RecipeStep title="3. Mixage" image={step3Img} alt="Mixage du butternut et des oignons rôtis">
 Une fois le butternut cuit, l'égoutter et le transférer dans un grand récipient (ou un blender) avec la crème fraîche d'Isigny et le fromage crémeux. 
 
 Commencer à mixer au mixeur plongeant (ou blender). Ajouter de l'eau (de préférence l'eau de cuisson du butternut) petit à petit pour ajuster la fluidité jusqu'à obtenir la texture de base désirée.
@@ -86,17 +90,16 @@ Commencer à mixer au mixeur plongeant (ou blender). Ajouter de l'eau (de préf�
 Ajouter ensuite les oignons, échalotes et ail fraîchement sortis du four, puis mixer à nouveau vigoureusement pendant quelques minutes. L'objectif est de briser toutes les fibres pour obtenir une texture parfaitement lisse et veloutée.
 
 <Timer client:load seconds={180} label="Mixage intensif" />
+</RecipeStep>
 
-<br/>
-
-## 4. Assaisonnement et Passage au Chinois
+<RecipeStep title="4. Assaisonnement et Passage au Chinois" image={step4Img} alt="Passage du velouté au chinois étamine">
 Goûter, et ajuster l'assaisonnement : incorporer du sel, du poivre, et une touche de piment si désiré.
 
 Pour une texture optimale et un rendu "restaurant", passer l'appareil au chinois étamine en foulant la préparation pour éliminer les fibres récalcitrantes (notamment celles des échalotes et du butternut).
+</RecipeStep>
 
-<br/>
-
-## 5. Dressage
+<RecipeStep title="5. Dressage" image={step5Img} alt="Dressage du velouté avec garnitures">
 Servir bien chaud dans des assiettes creuses ou des bols. 
 
 Agrémenter d'herbes fraîches ciselées, d'une fine pincée de piment supplémentaire et de quelques pickles d'oignons. L'acidité des pickles viendra parfaitement équilibrer la richesse de la crème et la douceur du butternut.
+</RecipeStep>

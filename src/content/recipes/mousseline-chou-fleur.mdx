@@ -36,48 +36,51 @@ ingredients:
 ---
 
 import Timer from '../../components/Timer.jsx';
+import RecipeStep from '../../components/RecipeStep.astro';
+import step1Img from '../../assets/recipes/steps/mousse-step-1.png';
+import step2Img from '../../assets/recipes/steps/mousse-step-2.png';
+import step3Img from '../../assets/recipes/steps/mousse-step-3.png';
+import step4Img from '../../assets/recipes/steps/mousse-step-4.png';
+import step5Img from '../../assets/recipes/steps/mousse-step-5.png';
 
 <br/>
 
-## 1. Infusion de la Crème
+<RecipeStep title="1. Infusion de la Crème" image={step1Img} alt="Infusion de la crème avec thym et laurier">
 *Étape hautement recommandée :* Faire chauffer doucement la crème liquide avec des aromates de votre choix (thym, laurier, poivre en grains) pour l'infuser, puis la réserver.
 
 Couper la base des choux-fleurs pour en détacher les sommités (conserver uniquement les têtes/fleurettes). Émincer grossièrement l'échalote.
+</RecipeStep>
 
-<br/>
-
-## 2. Cuisson à l'Anglaise Aromatisée
+<RecipeStep title="2. Cuisson à l'Anglaise Aromatisée" image={step2Img} alt="Cuisson des fleurettes de chou-fleur">
 Porter un grand volume d'eau à ébullition. Saler l'eau (avec modération, le bouillon apportant déjà de la salinité), puis y plonger les bouillons cube de légumes, l'échalote émincée, et les morceaux de chou-fleur.
 
 Laisser cuire à gros bouillons jusqu'à ce que les têtes soient extrêmement tendres et qu'elles puissent être facilement coupées à la cuillère.
 
 <Timer client:load seconds={1200} label="Cuisson des fleurettes" />
+</RecipeStep>
 
-<br/>
-
-## 3. Égouttage et Tamisage
+<RecipeStep title="3. Égouttage et Tamisage" image={step3Img} alt="Égouttage du chou-fleur">
 Égoutter parfaitement l'ensemble (chou-fleur et échalote) pour retirer un maximum d'eau, afin de ne pas diluer la texture finale. 
 
 *(Optionnel 1) Pour obtenir une texture moins aérienne et plus riche en fin de préparation, vous pouvez dessécher le chou-fleur égoutté quelques minutes à la casserole ou à la poêle à feu moyen.*
 
 *(Optionnel 2) Pour un résultat "3 étoiles" : Passer la chair de chou-fleur au tamis fin avant de la placer dans le blender pour garantir l'absence totale de fibres.*
+</RecipeStep>
 
-<br/>
-
-## 4. Mixage et Montée en Crème
+<RecipeStep title="4. Mixage et Montée en Crème" image={step4Img} alt="Mixage du chou-fleur avec de la crème">
 Transférer la chair de chou-fleur (ou la purée tamisée) encore bien chaude dans le bol d'un blender. Y déposer quelques noix de beurre. 
 
 Allumer le blender. Au cours du mixage, verser progressivement la crème liquide légère (15%). L'utilisation d'une crème à 15% est primordiale pour cette recette : elle contient des stabilisants et des émulsifiants spécifiques qui vont lier la préparation et lui donner du corps.
 
-Continuer de mixer à haute vitesse pendant quelques minutes. Sous l'action mécanique, le mélange va naturellement foisonner, prendre du volume, et acquérir sa texture lisse et soyeuse caractéristique.
+Continuer de mixer à haute vitesse pendant quelques minutes. Sous l'action mécanique, le mélange va naturellement foisonner, prendre du volume, et acquérir sa texture lisse et soyeuse characteristic.
 
 <Timer client:load seconds={240} label="Mixage et émulsion" />
+</RecipeStep>
 
-<br/>
-
-## 5. Finition et Assaisonnement
+<RecipeStep title="5. Finition et Assaisonnement" image={step5Img} alt="Finition de la mousseline de chou-fleur">
 Terminer l'émulsion en incorporant quelques dernières petites noix de beurre bien froid pour amener de la brillance.
 
 Goûter le mélange, puis ajuster l'assaisonnement avec du sel de finition (si nécessaire) et impérativement du poivre blanc (pour préserver la couleur immaculée de la mousseline). 
 
 Servir immédiatement en accompagnement.
+</RecipeStep>
