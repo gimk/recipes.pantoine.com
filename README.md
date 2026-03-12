@@ -1,43 +1,22 @@
-# Astro Starter Kit: Minimal
+# 📟 Recipe OS
 
-```sh
-npm create astro@latest -- --template minimal
-```
+**Recipe OS** is a specialized recipe website built with a unique "Retro-OS / Terminal / Cyberpunk" aesthetic. It's designed to feel like a vintage computer terminal while providing high-quality, structured recipes.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Technologies
 
-## 🚀 Project Structure
+- **[Astro 5](https://astro.build/)**: The modern web framework for building fast, content-driven websites.
+- **[React 19](https://react.dev/)**: Used for interactive elements like timers and ingredient scaling.
+- **[Tailwind CSS 4](https://tailwindcss.com/)**: A utility-first CSS framework for custom styling.
+- **MDX**: Markdown with JSX components for rich content authoring.
+- **[Gemini CLI](https://github.com/google/gemini-cli)** & **Antigravity**: Tools used for AI-assisted development and automation.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📂 Project Structure
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- `src/content/recipes/`: Recipe data in MDX format.
+- `src/components/`: Astro and React UI components.
+- `src/styles/global.css`: The "Retro-OS" design system.
+- `src/assets/`: Optimized images for recipes.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+_Developed with the help of Gemini CLI and Antigravity._
